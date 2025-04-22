@@ -423,3 +423,166 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Animaciones para secciones */
+.section-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para el hero */
+.hero-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para tarjetas de habilidades */
+.skill-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card-hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el juego de búsqueda */
+#tesoro-oculto:hover {
+    opacity: 0.5;
+    transform: scale(1.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Animación para proyectos */
+.project-card {
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Animación para botones */
+.btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para modo oscuro - mejorados */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff; /* Texto más claro para mejor contraste */
+}
+
+.dark-mode .section {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .bg-light {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .bg-dark {
+    background-color: #000000;
+}
+
+.dark-mode .section-title {
+    color: #ffffff; /* Título más claro */
+}
+
+.dark-mode .skill-card,
+.dark-mode .project-card,
+.dark-mode .testimonial-card {
+    background-color: #333333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .skill-card h3,
+.dark-mode .project-card h3,
+.dark-mode .testimonial-card h3 {
+    color: #ffffff; /* Títulos de tarjetas más claros */
+}
+
+.dark-mode .skill-card i {
+    color: #64b5f6; /* Iconos más brillantes en modo oscuro */
+    opacity: 1; /* Asegura que los iconos sean completamente visibles */
+}
+
+.dark-mode .project-info p {
+    color: #cccccc; /* Texto de descripción más claro */
+}
+
+.dark-mode a {
+    color: #64b5f6;
+}
+
+.dark-mode nav ul li a {
+    color: #ffffff; /* Enlaces de navegación más claros */
+}
+
+.dark-mode nav ul li a:hover {
+    color: #64b5f6; /* Color al pasar el cursor */
+}
+
+.dark-mode .btn {
+    background-color: #1976d2; /* Botones más oscuros pero visibles */
+    color: #ffffff;
+}
+
+.dark-mode .btn:hover {
+    background-color: #1565c0;
+}
+
+.dark-mode .project-tags span {
+    background-color: #444444; /* Etiquetas más oscuras */
+    color: #e0e0e0; /* Texto de etiquetas más claro */
+}
+
+/* Mejora del botón de cambio de modo */
+#modo-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+#modo-toggle:hover {
+    background-color: #555;
+}
+
+.dark-mode #modo-toggle {
+    background-color: #64b5f6; /* Color más claro en modo oscuro */
+    color: #121212; /* Icono oscuro para contraste */
+}
+
+.dark-mode #modo-toggle:hover {
+    background-color: #90caf9;
+}

@@ -1,101 +1,124 @@
-// Esperar a que el DOM esté completamente cargado
+// Animaciones para el portafolio
 document.addEventListener('DOMContentLoaded', function() {
-    // Navegación suave para los enlaces internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 70,
-                    behavior: 'smooth'
-                });
+    // Animación de entrada para secciones
+    const sections = document.querySelectorAll('section');
+    
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+    
+    const sectionObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
+        });
+    }, observerOptions);
+    
+    sections.forEach(section => {
+        section.classList.add('section-hidden');
+        sectionObserver.observe(section);
+    });
+    
+    // Animaciones para tarjetas de habilidades
+    const skillCards = document.querySelectorAll('.skill-card');
+    skillCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('skill-card-hover');
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('skill-card-hover');
         });
     });
     
-    // Animación para el header al hacer scroll
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.padding = '10px 0';
-            header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+    // Animación para el hero
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        setTimeout(() => {
+            heroContent.classList.add('hero-visible');
+        }, 300);
+    }
+});
+
+// Juego de búsqueda
+function iniciarJuegoBusqueda() {
+    // Crear un elemento oculto en una posición aleatoria
+    const tesoroOculto = document.createElement('div');
+    tesoroOculto.id = 'tesoro-oculto';
+    tesoroOculto.style.position = 'absolute';
+    tesoroOculto.style.width = '30px';
+    tesoroOculto.style.height = '30px';
+    tesoroOculto.style.cursor = 'pointer';
+    tesoroOculto.style.zIndex = '1000';
+    tesoroOculto.style.opacity = '0.1';
+    tesoroOculto.style.borderRadius = '50%';
+    tesoroOculto.style.backgroundColor = '#ff9900';
+    
+    // Posición aleatoria
+    const randomSection = Math.floor(Math.random() * sections.length);
+    const section = sections[randomSection];
+    const sectionRect = section.getBoundingClientRect();
+    
+    const maxX = sectionRect.width - 30;
+    const maxY = sectionRect.height - 30;
+    
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+    
+    tesoroOculto.style.left = `${randomX}px`;
+    tesoroOculto.style.top = `${randomY}px`;
+    
+    section.style.position = 'relative';
+    section.appendChild(tesoroOculto);
+    
+    // Evento al encontrar el tesoro
+    tesoroOculto.addEventListener('click', function() {
+        alert('¡Felicidades! Has encontrado el tesoro oculto. Eres un buen explorador.');
+        this.remove();
+    });
+    
+    // Pista en la consola
+    console.log('Hay un tesoro oculto en alguna parte de esta página. ¿Puedes encontrarlo?');
+}
+
+// Iniciar el juego después de 5 segundos
+setTimeout(iniciarJuegoBusqueda, 5000);
+
+
+// Implementación de modo oscuro/claro
+function configurarModoOscuro() {
+    const botonModo = document.createElement('button');
+    botonModo.id = 'modo-toggle';
+    botonModo.innerHTML = '<i class="fas fa-moon"></i>';
+    botonModo.title = 'Cambiar modo oscuro/claro';
+    
+    document.body.appendChild(botonModo);
+    
+    // Verificar preferencia guardada
+    const modoOscuroGuardado = localStorage.getItem('modoOscuro') === 'true';
+    
+    if (modoOscuroGuardado) {
+        document.body.classList.add('dark-mode');
+        botonModo.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    
+    botonModo.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        const esModoOscuro = document.body.classList.contains('dark-mode');
+        
+        // Guardar preferencia
+        localStorage.setItem('modoOscuro', esModoOscuro);
+        
+        // Cambiar icono
+        if (esModoOscuro) {
+            this.innerHTML = '<i class="fas fa-sun"></i>';
         } else {
-            header.style.padding = '20px 0';
-            header.style.backgroundColor = 'var(--secondary-color)';
+            this.innerHTML = '<i class="fas fa-moon"></i>';
         }
     });
-    
-    // Manejo del formulario de contacto
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Obtener los valores del formulario
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Aquí normalmente enviarías los datos a un servidor
-            // Como estamos usando solo frontend, mostraremos un mensaje de éxito
-            
-            // Simulación de envío
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
-            
-            setTimeout(() => {
-                // Mostrar mensaje de éxito
-                alert(`¡Gracias ${name}! Tu mensaje ha sido enviado correctamente. Te contactaré pronto.`);
-                
-                // Resetear el formulario
-                contactForm.reset();
-                
-                // Restaurar el botón
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-            }, 1500);
-        });
-    }
-    
-    // Animación para las tarjetas de habilidades
-    const skillCards = document.querySelectorAll('.skill-card');
-    
-    // Función para verificar si un elemento está en el viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-    
-    // Función para animar elementos cuando están en el viewport
-    function animateOnScroll() {
-        skillCards.forEach(card => {
-            if (isInViewport(card)) {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }
-        });
-    }
-    
-    // Inicializar estilos para la animación
-    skillCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-    
-    // Ejecutar la animación al cargar y al hacer scroll
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
-});
+}
+
+configurarModoOscuro();
