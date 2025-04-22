@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Juego de búsqueda
 function iniciarJuegoBusqueda() {
+    // Definir sections antes de usarlo
+    const sections = document.querySelectorAll('section');
+    
     // Crear un elemento oculto en una posición aleatoria
     const tesoroOculto = document.createElement('div');
     tesoroOculto.id = 'tesoro-oculto';
