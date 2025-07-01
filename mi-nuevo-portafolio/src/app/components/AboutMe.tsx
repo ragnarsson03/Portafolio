@@ -19,58 +19,74 @@ const AboutMe = () => {
           </h2>
         </motion.div>
         
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
-            {/* Imagen o avatar */}
-            <motion.div 
-              className="md:col-span-2 flex justify-center"
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="order-2 md:order-1"
             >
-              <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl dark:border-gray-700">
-                <img 
-                  src="/img/profile.jpg" 
-                  alt="Frederick Durán" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://via.placeholder.com/300?text=Frederick+Durán';
-                  }}
-                />
+              <h3 className="text-2xl font-bold mb-4 dark:text-white">Desarrollador Web</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                Desarrollo y mantenimiento de aplicaciones web utilizando PHP, JavaScript, y HTML. 
+                Experiencia con frameworks como Laravel y Next.js. Gestión y optimización de bases de datos, 
+                incluyendo PostgreSQL y MySQL.
+              </p>
+              
+              <div className="mb-6">
+                <h4 className="text-xl font-semibold mb-3 dark:text-white">Experiencia Laboral</h4>
+                <div className="mb-4">
+                  <p className="font-medium dark:text-white">DIST. Maravilla de Grandes Chiquitines CA. | Área de Ventas</p>
+                  <p className="text-gray-500 dark:text-gray-400">2019-2021</p>
+                </div>
+                <div className="mb-4">
+                  <p className="font-medium dark:text-white">Escuela de Fortalecimiento del Poder Popular (EFPP) | Analista y Soporte a Computadoras</p>
+                  <p className="text-gray-500 dark:text-gray-400">2021-2023</p>
+                </div>
+                <div className="mb-4">
+                  <p className="font-medium dark:text-white">Pasantías Primer Año [CANTV]</p>
+                  <p className="text-gray-500 dark:text-gray-400">Proyecto 2024 APROBADO</p>
+                </div>
+                <div className="mb-4">
+                  <p className="font-medium dark:text-white">Pasantías Segundo Año [Sindicatura Municipal de Caracas]</p>
+                  <p className="text-gray-500 dark:text-gray-400">Proyecto 2025 APROBADO</p>
+                </div>
+              </div>
+              
+              <div className="mb-6">
+                <h4 className="text-xl font-semibold mb-3 dark:text-white">Educación</h4>
+                <div className="mb-4">
+                  <p className="font-medium dark:text-white">Ingeniería en Informática</p>
+                  <p className="text-gray-500 dark:text-gray-400">Segundo Año de Ing. Informática Cursando hacia TSU (2025)</p>
+                </div>
+                <div className="mb-4">
+                  <p className="font-medium dark:text-white">Bachiller</p>
+                  <p className="text-gray-500 dark:text-gray-400">Liceo, Instituto Educacional "ABC" | 2016 - 2020, Caracas, Venezuela</p>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-xl font-semibold mb-3 dark:text-white">Certificaciones</h4>
+                <ul className="list-disc list-inside text-gray-600 dark:text-gray-300">
+                  <li>Curso de Computación | 2015</li>
+                  <li>Curso de Introducción a Linux | 2020</li>
+                  <li>Curso de HTML, CSS, JavaScript | 2021</li>
+                  <li>Formación en Laravel | 2021</li>
+                  <li>Mantenimiento Preventivos a los equipos de Informática en CANTV | 2024</li>
+                </ul>
               </div>
             </motion.div>
             
-            {/* Texto de presentación */}
-            <motion.div 
-              className="md:col-span-3 space-y-6"
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="order-1 md:order-2"
             >
-              <p className="text-lg text-gray-700 leading-relaxed dark:text-gray-300">
-                Soy un desarrollador web apasionado por crear soluciones digitales eficientes y atractivas. 
-                Me especializo en el desarrollo de aplicaciones web utilizando PHP, HTML, CSS, JavaScript y bases de datos PostgreSQL.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed dark:text-gray-300">
-                Mi objetivo es combinar funcionalidad y diseño para crear experiencias de usuario excepcionales, 
-                siempre buscando aprender nuevas tecnologías y mejorar mis habilidades.
-              </p>
               
-              {/* Botones de redes sociales o CV */}
-              <div className="flex space-x-4 pt-4">
-                <a href="#" className="bg-blue-500 text-white p-3 rounded-full hover:bg-blue-600 transition-colors">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/FrederickDuran" className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition-colors">
-                  <i className="fab fa-github"></i>
-                </a>
-                <a href="#" className="bg-green-500 text-white px-4 py-3 rounded-full hover:bg-green-600 transition-colors flex items-center">
-                  <i className="fas fa-file-alt mr-2"></i>
-                  <span>Descargar CV</span>
-                </a>
-              </div>
             </motion.div>
           </div>
         </div>

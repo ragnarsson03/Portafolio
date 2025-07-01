@@ -61,7 +61,7 @@ const Contact = () => {
   // Función para abrir WhatsApp
   const openWhatsApp = () => {
     // Reemplaza este número con tu número de WhatsApp (incluye el código de país)
-    const phoneNumber = "584141234567";
+    const phoneNumber = "584149083826";
     const message = "Hola Frederick, me gustaría hablar contigo sobre un proyecto.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -130,7 +130,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold dark:text-white">Ubicación</h3>
-                    <p className="text-gray-600 dark:text-gray-300">Venezuela</p>
+                    <p className="text-gray-600 dark:text-gray-300">Venezuela, Caracas</p>
                   </div>
                 </div>
               </div>
@@ -141,7 +141,6 @@ const Contact = () => {
                     <i className="fas fa-globe text-white text-xl"></i>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold dark:text-white">Redes Sociales</h3>
                     <div className="flex space-x-4 mt-2">
                       <a href="https://github.com/FrederickDuran" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
                         <i className="fab fa-github text-xl"></i>
