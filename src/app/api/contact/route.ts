@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     }
     
     // Guardar en la base de datos
-    const contact = await prisma.contact.create({
+    await prisma.contact.create({  // Eliminar la asignación a 'contact'
       data: {
         name,
         email,

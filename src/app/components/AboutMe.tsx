@@ -63,7 +63,7 @@ const AboutMe = () => {
                 </div>
                 <div className="mb-4">
                   <p className="font-medium dark:text-white">Bachiller</p>
-                  <p className="text-gray-500 dark:text-gray-400">Liceo, Instituto Educacional "ABC" | 2016 - 2020, Caracas, Venezuela</p>
+                  <p className="text-gray-500 dark:text-gray-400">Liceo, Instituto Educacional &quot;ABC&quot; | 2016 - 2020, Caracas, Venezuela</p>
                 </div>
               </div>
               
