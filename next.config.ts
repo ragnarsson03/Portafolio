@@ -1,9 +1,12 @@
 const nextConfig = {
-  // Eliminar output: 'export' para despliegues en Vercel
-  // Eliminar basePath y assetPrefix
+  output: 'export',  // Habilitar exportación estática para GitHub Pages
   images: {
     domains: ['localhost', 'portafolio-chi-ruddy.vercel.app'],
+    unoptimized: true, // Necesario para exportación estática
   },
+  // Configuración para GitHub Pages
+  basePath: process.env.NODE_ENV === 'production' ? '/Portafolio' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Portafolio/' : '',
   async headers() {
     return [
       {
@@ -28,6 +31,10 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains',
           },
         ],
       },
