@@ -1,12 +1,13 @@
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
-  output: 'export',  // Habilitar exportación estática para GitHub Pages
+  output: 'export',  // Habilita la exportación estática para GitHub Pages
   images: {
     domains: ['localhost', 'portafolio-chi-ruddy.vercel.app'],
     unoptimized: true, // Necesario para exportación estática
   },
-  // Configuración para GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/Portafolio' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/Portafolio/' : '',
+  basePath: isProd ? '/Portafolio' : '',
+  assetPrefix: isProd ? '/Portafolio/' : '',
   async headers() {
     return [
       {
