@@ -8,7 +8,7 @@ const Projects = () => {
   const projects = [
     {
       title: "Sticker Factory",
-      description: "Tienda online de stickers personalizados con sistema de carrito de compras y pasarela de pagos. Desarrollado con PHP, JavaScript y MySQL.",
+      description: "Tienda Online de stickers personalizados con sistema de carrito de compras y pasarela de pagos. Desarrollado con PHP, JavaScript y MySQL.",
       image: "/stickerfactory.jpg",
       technologies: ["PHP", "JavaScript", "MySQL", "HTML/CSS"],
       link: "https://stickerfactory.cl/",
