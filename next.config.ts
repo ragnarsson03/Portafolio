@@ -1,9 +1,8 @@
 const nextConfig = {
-  output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/Portafolio' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/Portafolio/' : '',
+  // Eliminar output: 'export'
+  // Eliminar basePath y assetPrefix
   images: {
-    unoptimized: true,
+    domains: ['localhost'], // En lugar de unoptimized: true
   },
 };
 
