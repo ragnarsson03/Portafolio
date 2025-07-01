@@ -9,7 +9,7 @@ const Projects = () => {
     {
       title: "Sticker Factory",
       description: "Tienda online de stickers personalizados con sistema de carrito de compras y pasarela de pagos. Desarrollado con PHP, JavaScript y MySQL.",
-      image: "/stickerfactory.jpg", // Necesitarás añadir esta imagen a tu carpeta public
+      image: "/stickerfactory.jpg",
       technologies: ["PHP", "JavaScript", "MySQL", "HTML/CSS"],
       link: "https://stickerfactory.cl/",
       github: ""
@@ -17,19 +17,12 @@ const Projects = () => {
     {
       title: "Sistema de Gestión de Inventario",
       description: "Aplicación web desarrollada con PHP y PostgreSQL para gestionar inventario de pequeñas empresas.",
-      image: "/inventory.jpg", // Necesitarás añadir esta imagen a tu carpeta public
+      image: "/inventory.jpg",
       technologies: ["PHP", "PostgreSQL", "JavaScript", "Bootstrap"],
       link: "#",
       github: "https://github.com/FrederickDuran/inventory-system"
-    },
-    {
-      title: "Plataforma de Cursos Online",
-      description: "Sitio web responsivo para la gestión y visualización de cursos online con sistema de usuarios.",
-      image: "/courses.jpg", // Necesitarás añadir esta imagen a tu carpeta public
-      technologies: ["PHP", "MySQL", "JavaScript", "CSS"],
-      link: "#",
-      github: "https://github.com/FrederickDuran/online-courses"
     }
+    // Se eliminó el proyecto "Plataforma de Cursos Online"
   ];
   
   return (
