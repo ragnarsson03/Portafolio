@@ -1,8 +1,8 @@
 const nextConfig = {
-  // Eliminar output: 'export'
+  // Eliminar output: 'export' para despliegues en Vercel
   // Eliminar basePath y assetPrefix
   images: {
-    domains: ['localhost'], // En lugar de unoptimized: true
+    domains: ['localhost', 'portafolio-chi-ruddy.vercel.app'],
   },
 };
 
